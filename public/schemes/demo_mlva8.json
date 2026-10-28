@@ -1,0 +1,36 @@
+{
+  "id": "demo_mlva8",
+  "name": "MLVA8 (synthetic)",
+  "organism": "Synthetic demonstration organism",
+  "version": "1.0.0",
+  "description": "Fictional loci and profiles for interface demonstration. Not an organism-specific typing scheme.",
+  "loci": [
+    "VNTR01",
+    "VNTR02",
+    "VNTR03",
+    "VNTR04",
+    "VNTR05",
+    "VNTR06",
+    "VNTR07",
+    "VNTR08"
+  ],
+  "aliases": {},
+  "weights": {
+    "VNTR01": 0.5,
+    "VNTR02": 1,
+    "VNTR03": 1,
+    "VNTR04": 1,
+    "VNTR05": 0.5,
+    "VNTR06": 1,
+    "VNTR07": 1,
+    "VNTR08": 1
+  },
+  "metadataFields": [
+    "collection",
+    "notes"
+  ],
+  "visualization": {
+    "accent": "#197968"
+  },
+  "synthetic": true
+}

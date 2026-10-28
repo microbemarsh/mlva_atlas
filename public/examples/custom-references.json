@@ -1,0 +1,17 @@
+[
+  {
+    "isolate_id": "CUSTOM-01",
+    "organism": "Synthetic custom organism",
+    "scheme": "custom_example",
+    "profile": {
+      "MarkerA": 2,
+      "MarkerB": 4,
+      "MarkerC": 6,
+      "MarkerD": 8
+    },
+    "lineage": "Demo custom",
+    "metadata": {
+      "synthetic": true
+    }
+  }
+]

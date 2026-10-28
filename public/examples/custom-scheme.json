@@ -1,0 +1,29 @@
+{
+  "id": "custom_example",
+  "name": "Custom four-locus demonstration",
+  "organism": "Synthetic custom organism",
+  "description": "Copy this template and define your own validated locus names and weights.",
+  "version": "1.0.0",
+  "loci": [
+    "MarkerA",
+    "MarkerB",
+    "MarkerC",
+    "MarkerD"
+  ],
+  "aliases": {
+    "marker_a": "MarkerA"
+  },
+  "weights": {
+    "MarkerA": 1,
+    "MarkerB": 1,
+    "MarkerC": 0.5,
+    "MarkerD": 2
+  },
+  "metadataFields": [
+    "collection"
+  ],
+  "visualization": {
+    "accent": "#197968"
+  },
+  "synthetic": true
+}
