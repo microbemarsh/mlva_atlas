@@ -31,6 +31,8 @@ Production output is `dist/`. React, TypeScript, Vite, Tailwind CSS and TanStack
 
 The relative Vite base (`./`) supports repository paths such as `/mlva_atlas/` and custom domains. `BASE_PATH=/your-prefix/ npm run build` overrides it. Navigation uses in-app state, with no server-side routing requirement. Reference assets, worker code and map data are served from the same site. Creating these files does not publish the site or change repository settings.
 
+If an older deployment reports **“Multiple artifacts named 'github-pages'”**, start a fresh run of **Validate and deploy MLVA Atlas** from its **Run workflow** button after updating the workflow on `main`. Rerunning an existing run uses its original workflow revision. The updated workflow gives each build attempt a unique artifact name and passes that name to deployment; retrying only deployment reuses the successful build's artifact.
+
 ## User workflow
 
 1. Drag in a CSV/TSV file, select a file manually, or paste a delimited table.

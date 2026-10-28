@@ -16,18 +16,26 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      artifact_name: ${{ steps.artifact.outputs.name }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
       - run: npm ci
       - run: npm test
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+      # Each build attempt gets its own artifact. A deploy-only retry reuses
+      # the name from the successful build job, even if run_attempt changes.
+      - name: Set Pages artifact name
+        id: artifact
+        run: echo "name=mlva-atlas-pages-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-pages-artifact@v5
         if: github.event_name != 'pull_request'
         with:
+          name: ${{ steps.artifact.outputs.name }}
           path: dist
   deploy:
     if: github.event_name != 'pull_request'
@@ -40,5 +48,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v5
         id: deployment
+        with:
+          artifact_name: ${{ needs.build.outputs.artifact_name }}
